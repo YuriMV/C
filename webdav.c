@@ -1,4 +1,4 @@
-/* coded by: vold e synt4x3r */
+/* coded by: vold greetz synt4x3r */
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/socket.h>
@@ -17,11 +17,20 @@ typedef struct {
     char connec[MAX];
 }comp;
 
+void cpstring(char *dest, const char *str) {
+    int i = 0;
+       while(str[i] != '\0') {
+           dest[i] = str[i];
+           i++;
+       }
+       dest[i] = '\0';
+}
+
 void strct(comp *elemen) {
-    strcpy(elemen->b, "PUT");
-    strcpy(elemen->x, "Host:");
-    strcpy((*elemen).cont, "Content-Length:");
-    strcpy((*elemen).connec, "Connection: close");
+    cpstring(elemen->b, "PUT");
+    cpstring(elemen->x, "Host:");
+    cpstring((*elemen).cont, "Content-Length:");
+    cpstring((*elemen).connec, "Connection: close");
 }
 
 void erro(char *str, int erro) {
@@ -63,7 +72,7 @@ int main(int argc, char **argv) {
      
     h = gethostbyname(argv[1]);
     if (!h) {
-        erro("erro gethostbyname.\n", -1);
+        erro("\e[00;32merro gethostbyname. \n\e[0m", -1);
     }
     
     server.sin_family = h->h_addrtype;
@@ -74,16 +83,14 @@ int main(int argc, char **argv) {
          erro("erro connect. \n", -1);
      }
        if(send (sockfd, BUFF, strlen(BUFF), 0) < 0) {
-           erro("erro send. \n", -1);
+           erro("\e[00;31merro send. \n\e[0m", -1);
        } 
-       else {
-           printf("[+]Sucesso\n");
-       }
+  
       
          while ( recebe=recv(sockfd, get, MAX, 0)) {
              get[recebe] = '\0';
              printf("%s\n", get);
          }
-             
+    fclose(fileptr);
     return 0;
 }
