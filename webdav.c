@@ -73,7 +73,7 @@ int main(int argc, char **argv) {
      
     content(read, fileptr);
     size = strlen(read);
-
+    
     sprintf(BUFF, "%s %s%s HTTP/1.1\r\n%s %i\r\n%s %s\r\n%s\r\n\r\n%s\r\n\r\n\r\n", p2.b, argv[3], argv[2], p2.cont, size, p2.x, argv[1], p2.connec, read);
 
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
