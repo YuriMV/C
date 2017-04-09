@@ -33,7 +33,7 @@ void strct(comp *elemen) {
     cpstring((*elemen).connec, "Connection: close");
 }
 
-void erro(char *str, int erro) {
+void erro(const char *str, int erro) {
     printf("%s", str);
     exit(erro);
 }
