@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+/* pegar o tamanho da string do membro da estrutura.
+by: vold */
 enum {MAX=20};
 
 typedef struct {
