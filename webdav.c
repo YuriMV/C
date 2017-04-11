@@ -73,7 +73,7 @@ int main(int argc, char **argv) {
      
     content(read, fileptr);
     size = strlen(read);
-    
+
     sprintf(BUFF, "%s %s%s HTTP/1.1\r\n%s %i\r\n%s %s\r\n%s\r\n\r\n%s\r\n\r\n\r\n", p2.b, argv[3], argv[2], p2.cont, size, p2.x, argv[1], p2.connec, read);
 
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -83,7 +83,7 @@ int main(int argc, char **argv) {
      
     h = gethostbyname(argv[1]);
     if (!h) {
-        erro("\e[00;32merro gethostbyname. \n\e[0m", -1);
+        erro("erro gethostbyname. \n", -1);
     }
     
     server.sin_family = h->h_addrtype;
@@ -94,14 +94,15 @@ int main(int argc, char **argv) {
          erro("erro connect. \n", -1);
      }
        if(send (sockfd, BUFF, strlen(BUFF), 0) < 0) {
-           erro("\e[00;31mErro send. \n\e[0m", -1);
+           erro("erro send. \n", -1);
        } 
   
       
-         while ( recebe=recv(sockfd, get, MAX, 0)) {
-             get[recebe] = '\0';
-             printf("%s\n", get);
+         while ( recebe=recv(sockfd, get, MAX, 0) < 0) {
+             erro("erro recv. \n", -1);
          }
+              get[recebe] = '\0';
+              fprintf(stdout, ": %s%s%s\n", argv[1], argv[3],argv[2]);
     fclose(fileptr);
     return 0;
 }
