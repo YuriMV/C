@@ -59,7 +59,7 @@ int main(int argc, char **argv) {
     comp p2;
     strct(&p2);
     
-    int sockfd, size, recebe;
+    int sockfd, size;
     struct sockaddr_in server, addr;
     struct hostent *h;
     
