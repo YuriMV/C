@@ -96,12 +96,6 @@ int main(int argc, char **argv) {
        if(send (sockfd, BUFF, strlen(BUFF), 0) < 0) {
            erro("erro send. \n", -1);
        } 
-  
-      
-         while ( recebe=recv(sockfd, get, MAX, 0) < 0) {
-             erro("erro recv. \n", -1);
-         }
-              get[recebe] = '\0';
               fprintf(stdout, ": %s%s%s\n", argv[1], argv[3],argv[2]);
     fclose(fileptr);
     return 0;
