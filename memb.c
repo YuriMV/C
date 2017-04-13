@@ -1,6 +1,6 @@
 /* código de teste... 
 alocando memória pra estrutura, zerando, apontando membros para a primeira posição da memória ( apontando para NULL pq não estou usando os membros da estrutura naquela linha )
-alocando memória para membros, copiando string "teste" para membro 1 (mem1), copiando string para membro 2 (mem2) com memcpy()
+alocando memória para membros, copiando string "teste" para membro 1 (mem1), copiando bloco de memória (copiando teste) para membro 2 (mem2) com memcpy()
 pegando tamanho da struct e do ponteiro multiplicado pela macro SIZE
 e pegando tamanho de ambas normal.
 by: vold */
