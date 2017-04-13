@@ -1,5 +1,5 @@
 /* código de teste... 
-alocando memória pra estrutura, zerando, apontando membros para a primeira posição da memória ( apontando para NULL pq não estou usando os membros da estrutura naquela linha )
+alocando memória pra estrutura, zerando, apontando membros para a primeira posição da memória ( apontando para NULL pq não estou usando aquela variável naquela linha )
 alocando memória para membros, copiando string "teste" para membro 1 (mem1), copiando bloco de memória (copiando teste) para membro 2 (mem2) com memcpy()
 pegando tamanho da struct e do ponteiro multiplicado pela macro SIZE
 e pegando tamanho de ambas normal.
@@ -41,7 +41,8 @@ typedef struct {
 
 inst_t *fsptr;
 
-static unsigned const int SIZE = 240;
+#define SIZE 260
+
 #define echo printf
 
 #define die(STR, ERRO) \
@@ -73,5 +74,6 @@ main() {
     echo("%d\n", (int)sizeof(inst_t));
     echo("%d\n", (int)sizeof( (char *)fsptr));
     
-  free(fsptr);
+  free(fsptr->mem1);
+  free(fsptr->mem2);
 }
