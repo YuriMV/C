@@ -45,9 +45,6 @@ enum { SIZE = 30000 };
 int main(int argc, char **argv) {
 	const char bing[] = "www.bing.com";
 	
-	const char w3[] = "www.w3.org";
-	int sizew3 = tamanhostring( (char *)w3);
-	
 	char *request [] = {
 	  "HTTP/1.1", 
 	  "Connection: close", 
