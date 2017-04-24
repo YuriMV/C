@@ -110,29 +110,26 @@ int main(int argc, char **argv) {
                resposta[tamanho] = '\0';
                str = resposta;
                char domain[SIZE];
-               _NULCHAR(domain, '\0', sizeof (char) *SIZE);
+              _NULCHAR(domain, '\0', sizeof (char) *SIZE);
                
-              unsigned int a = 0;
+              unsigned long int a = 0;
                
-                while ( 1 )  {
-                    str = strstr(str, "://");
-                    str += strlen("://");
+               while (1) {
+                   str = strstr(str, "://");
+                   str += strlen("://");
                     
-                     if (!str) {
-                         say("nao tem mais URLs. \n");
+                    if (!str) {
+                        say("nao existe mais URLs. \n");
+                        break;
+                    }
+                    
+                     for( a = 0; str[a] != '\0'; a++ ) {
+                         sscanf(&str[a], "%[0-9a-zA-Z.^\n]", &domain[a]);
                          break;
-                     }
-                    
-                     for (a = 0; str[a] != '\0'; a++) {
-                         
-                          if ( sscanf(&str[a], "%[a-zA-Z..][^/]", &domain[a])) {
-                           break;   
-                          }
-                          
-                     }
-                     
-                    printf("%s\n",domain);
-                }
-               
+                     } 
+                   wf(stdout, "> \"%s\"\n", domain);
+               }
+    
+    resposta = realloc(resposta, 0);           
 	return 0;
 }
