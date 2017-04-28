@@ -48,9 +48,7 @@ int main(void) {
 
          wf(stdout, "porta aberta: " \
                 " %-5d\n", count);
-     } else {
-         die("closed... \n", -1);
-     }
+     } 
      close(sockfd);
  }
     return 0;
