@@ -18,7 +18,7 @@ unsigned char * mystr(char *needle, char *haystack) {
         }
         
         
-         for ( i = 0; i < tamhay != '\0'; i++) {
+         for ( i = 0; i < tamhay; i++) {
              for ( b = 0; haystack[b] != '\0'; b++) 
                  if (needle[i] == *haystack) {
                      ptr = &needle[i];
