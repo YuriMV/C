@@ -55,8 +55,8 @@ main() {
     fsptr = malloc(SIZE*sizeof(inst_t));
     
     _setNULL( (char *)fsptr, (char)'\0', (int)sizeof(inst_t) *SIZE);
-    fsptr->mem1 == NULL;
-    fsptr->mem2 == NULL;
+    fsptr->mem1 = NULL;
+    fsptr->mem2 = NULL;
     
      if ( (fsptr->mem2 = (unsigned char *)calloc(SIZE, sizeof(inst_t)) ) && (fsptr->mem1 = (unsigned char *)calloc(SIZE, sizeof(inst_t)) ) == NULL) 
          die("erro ao alocar memoria. \n", -1);
