@@ -1,37 +1,38 @@
 #include <stdio.h>
-
-unsigned int len(char *p) {
-    int i;
-      for ( i = 0; p[i] != '\0'; i++);
-    return ( unsigned int)i;
+int size ( char *string ) 
+{
+	int i;
+	 for ( i = 0; string[i] != '\0'; i++);
+	return i;
 }
 
-unsigned char * mystr(char *needle, char *haystack) {
-    unsigned char *ptr = NULL;
-    unsigned int tamhay = len(haystack), i = 0, b = 0;
-
-        while ( *needle && *haystack ) {
-              if( *needle == *haystack ) {
-                 break;
-              }
-            needle++;
-        }
-        
-        
-         for ( i = 0; i < tamhay; i++) {
-             for ( b = 0; haystack[b] != '\0'; b++) 
-                 if (needle[i] == *haystack) {
-                     ptr = &needle[i];
-                     break;
-                 }
-         }
-         
-       return ptr;
-}
-
-enum {MAX = 100};
-int main(void) {
-    char p[MAX] = "my string here!!!", b[MAX] = "string";
-    printf("%s\n", mystr(p, b) );
-    return 0;
+unsigned char * mstr( char *nee, char *hay) 
+ {
+ 	char *ptr = NULL;
+ 	  int i, len = size(hay), b = 0, j = 0;
+ 	  
+ 	   while ( *nee && *hay ) {
+ 	   	     if (*nee == *hay) {
+ 	   	         break;	   
+			 }
+ 	   	    nee++;
+		}
+ 	  
+ 	   for ( j = 0; nee[j] != '\0'; j++) {
+ 	   	  for ( b = 0; hay[b] != '\0'; b++) {
+ 	   	  	     if ( nee[j] == hay[b] ) {
+ 	   	  	     	     ptr = &nee[j];
+					   }
+					break;
+			  }
+		}
+		
+ 	 return (unsigned char *)ptr;
+ }
+ 
+int main( int argc, char *argv[] ) {
+	const char p[] = "minha string aqui!!!", hay[] = "minha";
+	
+	printf("output = %s\n", mstr( (char *)p, (char *)hay) );
+	return 0;
 }
